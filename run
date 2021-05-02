@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# build docker image fist with: docker build -t lua-gtk:latest .
+
+# Enable X from inside docker container
+# xhost +local:docker
+
+docker run -it --rm -v `pwd`:/data/host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix lua-gtk:latest lua /data/host/GtkBuilder1.lua
